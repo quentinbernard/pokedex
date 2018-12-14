@@ -1,14 +1,17 @@
-<mat-card *ngIf="pokemon" class="pokemon-detail">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<mat-card *ngIf="pokemon">
   <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile>
       <mat-card>
         <img mat-card-lg-image src="assets/img/official-artwork/{{pokemon.id}}.png">
-        <mat-card-subtitle>No. {{pokemon.id}}</mat-card-subtitle>
+        <mat-card-subtitle>No. {{pokemon.id | number : '3.0-0'}}</mat-card-subtitle>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-list>
-        <mat-list-item> {{pokemon.name}} </mat-list-item>
+        <mat-list-item> {{pokemon.name }} <a class="clickable" (click)="playSound()"><mat-icon>play_circle_outline</mat-icon></a></mat-list-item>
         <mat-list-item>
           <mat-chip-list>
             <mat-chip *ngFor="let type of pokemon.types">{{type}} </mat-chip>
@@ -20,9 +23,6 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="2">{{pokemon.description}}</mat-grid-tile>
   </mat-grid-list>
-  <div class="goBackBtn">
-    <button (click)="goBack()" >Go back to the list</button>
-  </div>
 </mat-card>
 
 

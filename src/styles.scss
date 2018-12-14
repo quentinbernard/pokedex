@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+::ng-deep .mat-grid-tile .mat-card{
+  flex-direction: column;
+}
+
+.clickable{
+  cursor: pointer;
+}

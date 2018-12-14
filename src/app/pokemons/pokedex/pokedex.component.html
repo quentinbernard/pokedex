@@ -1,0 +1,8 @@
+<mat-sidenav-container>
+  <mat-sidenav class="list-pokemon" opened="true" mode="side" [fixedInViewport]="true">
+    <app-pokemon-list (idChange)="id=$event"></app-pokemon-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-pokemon-detail [id]="id" ></app-pokemon-detail>
+  </mat-sidenav-content>
+</mat-sidenav-container>
