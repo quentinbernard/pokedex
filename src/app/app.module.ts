@@ -7,7 +7,7 @@ import {PokemonsModule} from './pokemons/pokemons.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

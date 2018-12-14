@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {GetPokemonsService} from "../get-pokemons.service";
+import {GetPokemonsService} from '../get-pokemons.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,8 +9,9 @@ import {GetPokemonsService} from "../get-pokemons.service";
 export class PokemonListComponent implements OnInit {
   @Output() idChange = new EventEmitter<number>();
 
+  public search:any = '';
   pokemons: any[];
-  offset = 0;
+  offset = 20;
   limit = 10;
 
   constructor(
@@ -32,10 +33,11 @@ export class PokemonListComponent implements OnInit {
 
   onScroll(): void {
     console.log('scroll');
-    this.offset += 10;
     this.getPokemonsService.getPokemonsWithQueryParams(this.offset, this.limit)
       .subscribe(pokemons => pokemons.data.forEach(item => {
         this.pokemons.push(item);
     }));
+    this.offset += 10;
   }
+
 }
